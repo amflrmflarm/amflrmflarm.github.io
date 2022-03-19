@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/98.css"
+>
+<style>
+@import url("https://unpkg.com/98.css");
+
+body {
+background-color:#00807f;
+}
+
+.title-bar-text {
+    user-select: none;
+}
+
+input.videobar[type=range]::-moz-range-track{
+height:4px;
+background-color:silver;
+width: calc( 100% - 12px );
+border: none;
+box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
+}
+input.volume[type=range]{
+background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='50' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 2 14 v 1 h 48 v -3 v -14 l -1 0 l 0 16 l -45 0 z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 1 16 v -1 h 2 v -1 h 4 v -1 l 3 0 v -1 h 3 v -1 h 4 v -1 h 3 v -1 h 4 v -1 v 0 h 3 h 0 v -1 h 4 v -1 h 3 v -1 h 3 v -1 h 4 v -1 h 3 v -1 h 4 v -1 h 2 l 0 -1 l -2 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -2 0 z' fill='%2387888F'/%3E%3C/svg%3E");
+height:15px;
+width:50px;
+}
+input.volume[type=range]::-moz-range-track{
+box-shadow: none;
+border:none;
+background:none;
+}
+
+input.videobar[type=range]::-moz-range-thumb {
+height: 15px;
+	width: 13px;
+background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 0 0 v 13 H 1 V 1 h 11 V 0 z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 1 1 v 11 h 1 v -9 h 8 h 0 V 10 L 2 10 L 2 12 h 9 V 1 Z' fill='%23C0C7C8'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 11 -1 h 1 v 14 H 5 H 6 H -1 v -1 h 12 z' fill='%2387888F'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 12 0 h 1 v 14 H 9 v 0 h -14 v -1 h 17 z' fill='%23000'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 2 3 v 7 h 1 v -6 h 8 h 0 h -1 V 3 Z' fill='%2387888F'/%3E%3C/svg%3E");
+transform: translateY(1px);
+}
+iframe {
+box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
+padding: 1px;
+margin:-5px -7px 0px -7px;
+pointer-events:none;
+}
+</style>
+<script>
+var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('dudetube', {
+      height: '197',
+      width: '350',
+      videoId: '_CGCIKqHhp0',
+      vq: 'small',
+      events: {
+      'onReady': onPlayerReady,
+      }
+    });
+  }
+
+function onPlayerReady(event) {
+  event.target.setVolume(100);
+  event.target.playVideo();
+  
+  const bar1 = document.getElementsByClassName("videobar")[0];
+  bar1.addEventListener("mousedown", bar_set2);
+  const bar_set = setInterval(bar_set1, 500);
+  
+  const bar2 = document.getElementsByClassName("volume")[0];
+  bar2.addEventListener("mousedown", bar_set4);
+}
+
+function bar_set1() {
+  const bar1 = document.getElementsByClassName("videobar")[0];
+  const current = player.playerInfo.currentTime;
+  const full = player.getDuration();
+  bar1.value = Math.floor(current/full*100);
+}
+
+function bar_set2(){
+	const bar1 = document.getElementsByClassName("videobar")[0];
+	bar1.addEventListener('change', bar_set3);
+	player.pauseVideo();
+}
+
+function bar_set3(){
+    const bar1 = document.getElementsByClassName("videobar")[0];
+    const full = player.getDuration();
+    player.seekTo(Math.floor(bar1.value/100*full), true);
+    player.playVideo();
+    bar1.removeEventListener('change', bar_set3);
+    const bar_set = setInterval(bar_set1, 500);
+}
+
+function bar_set4(){
+	const bar2 = document.getElementsByClassName("volume")[0];
+	const bar_set2 = setInterval(bar_set5, 500);
+}
+
+function bar_set5(){
+	const bar2 = document.getElementsByClassName("volume")[0];
+    player.setVolume(bar2.value);
+}
+</script>
+</head>
+<body>
+<div class="window" style="display:inline-block; margin:auto;">
+  <div class="title-bar">
+    <div class="title-bar-text">Vidya Gaem Awards 2021 - Windows Media Player</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+  <div id="dudetube"></div>
+
+	<div class="field-row" style="width: calc(100% + 14px);margin:0px -5px;">
+  		<input class="videobar" type="range" min="1" max="100" value="0"/>
+	</div>
+<div class="field-row" style="width: calc(100% + 14px);margin:0px -5px;">
+  <input class="volume" type="range" min="1" max="100" value="100"/>
+</div>
+<br>
+Yet we are here.</div>
+</div>
+
+</body>
+</html>
