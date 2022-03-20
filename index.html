@@ -91,7 +91,7 @@ function onPlayerReady(event) {
   bar1.addEventListener("mousedown", bar_set2);
   const bar_set = setInterval(bar_set1, 500);
   
-  const bar2 = document.getElementsByClassName("volume")[0];
+  const bar2 = document.getElementsByClassName("has-box-indicator")[0];
   bar2.addEventListener("mousedown", bar_set4);
 }
 
@@ -118,12 +118,12 @@ function bar_set3(){
 }
 
 function bar_set4(){
-	const bar2 = document.getElementsByClassName("volume")[0];
+	const bar2 = document.getElementsByClassName("has-box-indicator")[0];
 	const bar_set2 = setInterval(bar_set5, 500);
 }
 
 function bar_set5(){
-	const bar2 = document.getElementsByClassName("volume")[0];
+	const bar2 = document.getElementsByClassName("has-box-indicator")[0];
     player.setVolume(bar2.value);
 }
 </script>
