@@ -41,12 +41,12 @@ width: calc( 100% - 12px );
 border: none;
 box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
 }
-input.volume[type=range]{
+input.has-box-indicator[type=range]{
 background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='50' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 2 14 v 1 h 48 v -3 v -14 l -1 0 l 0 16 l -45 0 z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 1 16 v -1 h 2 v -1 h 4 v -1 l 3 0 v -1 h 3 v -1 h 4 v -1 h 3 v -1 h 4 v -1 v 0 h 3 h 0 v -1 h 4 v -1 h 3 v -1 h 3 v -1 h 4 v -1 h 3 v -1 h 4 v -1 h 2 l 0 -1 l -2 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -3 0 l 0 1 l -3 0 l 0 1 l -4 0 l 0 1 l -2 0 z' fill='%2387888F'/%3E%3C/svg%3E");
 height:15px;
 width:50px;
 }
-input.volume[type=range]::-moz-range-track{
+input.has-box-indicator[type=range]::-moz-range-track{
 box-shadow: none;
 border:none;
 background:none;
@@ -146,7 +146,7 @@ function bar_set5(){
   		<input class="videobar" type="range" min="1" max="100" value="0"/>
 	</div>
 <div class="field-row" style="width: calc(100% + 14px);margin:0px -5px;">
-  <input class="volume" type="range" min="1" max="100" value="100"/>
+  <input class="has-box-indicator" type="range" min="1" max="100" value="100"/>
 </div>
 <br>
 Yet we are here.</div>
