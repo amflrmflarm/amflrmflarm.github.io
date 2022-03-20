@@ -66,6 +66,7 @@ pointer-events:none;
 }
 </style>
 <script>
+let bar_set;
 var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/player_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -82,14 +83,13 @@ var tag = document.createElement('script');
       }
     });
   }
-
 function onPlayerReady(event) {
   event.target.setVolume(100);
   event.target.playVideo();
   
   const bar1 = document.getElementsByClassName("videobar")[0];
   bar1.addEventListener("mousedown", bar_set2);
-  const bar_set = setInterval(bar_set1, 500);
+  bar_set = setInterval(bar_set1, 500);
   
   const bar2 = document.getElementsByClassName("has-box-indicator")[0];
   bar2.addEventListener("mousedown", bar_set4);
@@ -106,6 +106,7 @@ function bar_set2(){
 	const bar1 = document.getElementsByClassName("videobar")[0];
 	bar1.addEventListener('change', bar_set3);
 	player.pauseVideo();
+    window.clearInterval(bar_set);
 }
 
 function bar_set3(){
@@ -114,12 +115,12 @@ function bar_set3(){
     player.seekTo(Math.floor(bar1.value/100*full), true);
     player.playVideo();
     bar1.removeEventListener('change', bar_set3);
-    const bar_set = setInterval(bar_set1, 500);
+    bar_set = setInterval(bar_set1, 500);
 }
 
 function bar_set4(){
 	const bar2 = document.getElementsByClassName("has-box-indicator")[0];
-	const bar_set2 = setInterval(bar_set5, 500);
+	const bar_set2 = setInterval(bar_set5, 200);
 }
 
 function bar_set5(){
@@ -149,9 +150,10 @@ function bar_set5(){
   <input class="has-box-indicator" type="range" min="1" max="100" value="100"/>
 </div>
 <br>
+<div id="fuck">aaaa</div>
 Yet we are here.</div>
 </div>
 </div>
-
+	
 </body>
 </html>
