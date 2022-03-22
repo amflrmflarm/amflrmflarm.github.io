@@ -38,6 +38,8 @@ input[type="checkbox"].firstone {
 	width:19px;
 	height:19px;
     opacity:1;
+    position:relative;
+    float:left;
 	background-color:silver;
 	-webkit-appearance: none;
   appearance: none;
@@ -53,11 +55,15 @@ input[type="checkbox"].firstone:hover{
   background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 5 15 l 2 0 l 0 -1 l 2 0 l 0 -1 l 2 0 l 0 -1 l 2 0 l 0 -1 l 2 0 l 0 -1 l 1 0 l 0 -1 l -1 0 l 0 -1 l -2 0 l 0 -1 l -2 0 l 0 -1 l -2 0 l 0 -1 l -2 0 l 0 -1 l -2 0 z' fill='%23000'/%3E%3C/svg%3E"), url("data:image/svg+xml;charset=utf-8,%3Csvg width='2' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 0 2 l 1 0 l 0 -1 l 1 0 l 0 -1 l -1 0 l 0 1 l -1 0 z' fill='%23fff'/%3E%3C/svg%3E");
     box-shadow: inset 1px 1px gray,inset -1px -1px #fff;
   background-color:silver;
+  pointer-events:none;
 }
 
 input[type="checkbox"].secondone {
 	width:19px;
 	height:19px;
+    position:relative;
+    margin-left:2px;
+    float:left;
     opacity:1;
 	background-color:silver;
 	-webkit-appearance: none;
@@ -74,6 +80,7 @@ input[type="checkbox"].secondone:hover{
   background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 5 14 l 3 0 l 0 -9 l 2 0 l 0 9 l 3 0 l 0 -9 l -8 0 z' fill='%23000'/%3E%3C/svg%3E"), url("data:image/svg+xml;charset=utf-8,%3Csvg width='2' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 0 2 l 1 0 l 0 -1 l 1 0 l 0 -1 l -1 0 l 0 1 l -1 0 z' fill='%23fff'/%3E%3C/svg%3E");
     box-shadow: inset 1px 1px gray,inset -1px -1px #fff;
   background-color:silver;
+  pointer-events:none;
 }
 	
 input.videobar[type=range]::-moz-range-track {
@@ -169,6 +176,31 @@ function onPlayerReady(event) {
   
   const bar2 = document.getElementsByClassName("has-box-indicator")[0];
   bar2.addEventListener("mousedown", bar_set4);
+  
+  const btn1 = document.getElementsByClassName("firstone")[0];
+  btn1.addEventListener("change", btn_set1);
+  	
+  const btn2 = document.getElementsByClassName("secondone")[0];
+  btn2.addEventListener("change", btn_set2);
+}
+function btn_set1() {
+	if(this.checked){
+	player.playVideo();
+    }
+    const btn2 = document.getElementsByClassName("secondone")[0];
+    if(btn2.checked){
+    	btn2.checked = false;
+    }
+}
+
+function btn_set2() {
+	if(this.checked){
+	player.pauseVideo();
+    }
+    const btn1 = document.getElementsByClassName("firstone")[0];
+    if(btn1.checked){
+    	btn1.checked = false;
+    }
 }
 
 function bar_set1() {
@@ -189,7 +221,10 @@ function bar_set3(){
     const bar1 = document.getElementsByClassName("videobar")[0];
     const full = player.getDuration();
     player.seekTo(Math.floor(bar1.value/100*full), true);
+    const btn1 = document.getElementsByClassName("firstone")[0];
+    if(btn1.checked){
     player.playVideo();
+    }
     bar1.removeEventListener('mouseup', bar_set3);
     bar_set = setInterval(bar_set1, 500);
 }
@@ -224,8 +259,8 @@ function bar_set5(){
   		<input class="videobar" type="range" min="1" max="100" value="0"/>
 	</div>
     
-        <div class="leftfloat" style="margin-top:2px;"><input type="checkbox" class="firstone">
-        </div>
+       <input type="checkbox" class="firstone" checked="checked">
+       <input type="checkbox" class="secondone">
         
     <div class="rightfloat" style="margin-top:2px;">
 <div class="field-row" style="width: calc(100% + 10px);margin:0px -5px;">
