@@ -37,7 +37,7 @@ img.media {
 input.videobar[type=range]::-moz-range-track {
 height:4px;
 background-color:silver;
-width: calc( 100% - 12px );
+width: calc( 100% - 14px );
 border: none;
 box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
 }
@@ -61,11 +61,40 @@ transform: translateY(1px);
 
 iframe {
 box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
-padding: 1px;
+padding: 2px;
 margin:-5px -7px 0px -7px;
 pointer-events:none;
 }
+
+.rightfloat {
+float:right;
+}
+input[type=range].has-box-indicator::-webkit-slider-runnable-track {
+box-shadow: none;
+border:none;
+background:none;
+}
+
+input[type=range].videobar::-webkit-slider-thumb {
+height: 15px;
+width: 13px;
+background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='13' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 0 0 v 13 H 1 V 1 h 11 V 0 z' fill='%23fff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 1 1 v 11 h 1 v -9 h 8 h 0 V 10 L 2 10 L 2 12 h 9 V 1 Z' fill='%23C0C7C8'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 11 -1 h 1 v 14 H 5 H 6 H -1 v -1 h 12 z' fill='%2387888F'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 12 0 h 1 v 14 H 9 v 0 h -14 v -1 h 17 z' fill='%23000'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M 2 3 v 7 h 1 v -6 h 8 h 0 h -1 V 3 Z' fill='%2387888F'/%3E%3C/svg%3E");
+transform: translateY(-5px);
+}
+input[type=range].videobar::-webkit-slider-runnable-track {
+height:4px;
+background-color:silver;
+width:500px;
+margin-top:4px;
+margin-bottom:6px;
+border:none;
+box-shadow: 1px 0 0 #fff, 1px 1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #a9a9a9, -1px -1px 0 #a9a9a9, 0 -1px 0 #a9a9a9, -1px 1px 0 #fff, 1px -1px #a9a9a9;
+width: 100px!important;
+scrollbar-width:500px;
+}
 </style>
+
+
 <script>
 let bar_set;
 var tag = document.createElement('script');
@@ -130,6 +159,7 @@ function bar_set5(){
 }
 </script>
 </head>
+
 <body>
 <div class="middle">
 <div class="window" style="display:inline-block; margin:auto;">
@@ -144,12 +174,15 @@ function bar_set5(){
   <div class="window-body">
   <div id="dudetube"></div>
 
-	<div class="field-row" style="width: calc(100% + 14px);margin:0px -5px;">
+	<div class="field-row" style="width:calc(100% + 16px); margin-left:-8px;">
   		<input class="videobar" type="range" min="1" max="100" value="0"/>
 	</div>
-<div class="field-row" style="width: calc(100% + 14px);margin:0px -5px;">
+    <div class="rightfloat" style="margin-top:2px;">
+<div class="field-row" style="width: calc(100% + 10px);margin:0px -5px;">
   <input class="has-box-indicator" type="range" min="1" max="100" value="100"/>
 </div>
+</div>
+<br clear="both">
 <br>
 
 Damn, I wish the writing had the depth of its color pallet </div>
