@@ -83,6 +83,29 @@ input[type="checkbox"].secondone:hover{
   pointer-events:none;
 }
 	
+button.thirdone {
+	min-width: 19px;
+	min-height:19px;
+    margin-left:0px;
+    position:relative;
+    padding-right:0px;
+    box-shadow: none;
+    float:left;
+    opacity:1;
+    outline:none;
+	background-color:silver;
+	-webkit-appearance: none;
+  appearance: none;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='m 5 14 l 8 0 l 0 -9 l -8 0 z' fill='%23000'/%3E%3C/svg%3E");
+}
+button.thirdone:hover{
+ box-shadow: inset 1px 1px #fff,inset -1px -1px gray;
+  }
+button.thirdone:active{
+  box-shadow: inset 1px 1px gray,inset -1px -1px #fff;
+  padding-right:0px;
+}
+	
 input.videobar[type=range]::-moz-range-track {
 height:4px;
 background-color:silver;
@@ -182,6 +205,9 @@ function onPlayerReady(event) {
   	
   const btn2 = document.getElementsByClassName("secondone")[0];
   btn2.addEventListener("change", btn_set2);
+	
+  const btn3 = document.getElementsByClassName("thirdone")[0];
+  btn3.addEventListener('onclick', ()=>{player.seekTo(0, true);});
 }
 function btn_set1() {
 	if(this.checked){
@@ -261,6 +287,7 @@ function bar_set5(){
     
        <input type="checkbox" class="firstone" checked="checked">
        <input type="checkbox" class="secondone">
+	  <button class="thirdone">
         
     <div class="rightfloat" style="margin-top:2px;">
 <div class="field-row" style="width: calc(100% + 10px);margin:0px -5px;">
