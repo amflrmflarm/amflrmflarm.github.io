@@ -9,7 +9,7 @@ var tag = document.createElement('script');
     player = new YT.Player('dudetube', {
       height: '197',
       width: '350',
-      videoId: 'mjlusi_h_XA',
+      videoId: 'L1WMQF79WjU',
       playerVars: {controls: 0, rel:0},
       events: {
       'onReady': onPlayerReady,
