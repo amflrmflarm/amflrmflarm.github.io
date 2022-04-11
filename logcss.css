@@ -1,0 +1,75 @@
+body {
+color: #000;
+font-family: arial,helvetica,sans-serif;
+font-size: 10pt;
+background: #eef2ff url("https://file.garden/Xt9ag90HKkSMo0gA/fade-blue.png") top center repeat-x;
+}
+.log { 
+max-width: 80%;
+margin: 10px auto 0;
+}
+a {
+	color:#34345c !important;
+}
+
+a:hover {
+	color:red !important;
+}
+
+nav, #gamelinks{
+padding: 1px;
+text-align: right;
+font-weight: 400;
+font-size: 12px;
+}
+nav a, #gamelinks a{
+text-decoration: none;
+}
+
+.toptext {
+font-family: Tahoma,sans-serif;
+font-size: 28px;
+font-weight: 700;
+letter-spacing: -2px;
+margin-top: 0;
+text-align: center;
+color: #af0a0f;
+}
+
+.postblock {
+background-color: #98e;
+font-weight: 700;
+border: 1px solid #000;
+font-size: 9pt;
+padding:5px;
+border-spacing: 1px;
+text-align:center;
+}
+
+h4 {
+display: block;
+margin: auto;
+text-align: center;
+}
+
+hr {
+border: none;margin:6px 5px;border-top: 1px solid #b7c5d9;
+}
+td{
+font-size: 9pt;
+}
+.log tr:nth-child(2n-1) {
+background:#E0E5F5;
+}
+
+#details {
+text-align: center; font-size: x-small!important; padding-bottom: 4px; padding-top: 10px; color: #000; font-family: arial,helvetica,sans-serif;
+}
+
+#footerlinks{
+color: #000; font-family: arial,helvetica,sans-serif; text-align: center; font-size: x-small!important;text-decoration:none;
+}
+
+#footerlinks a{
+text-decoration: none;
+}
