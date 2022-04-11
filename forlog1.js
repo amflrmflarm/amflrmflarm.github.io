@@ -87,6 +87,6 @@
         }
     });
     for(ele of document.getElementsByClassName("back")){
-        {ele.addEventListener("onclick",()=>{history.back();})}
+        ele.addEventListener("click", function(){history.back();});
     }
 })();
