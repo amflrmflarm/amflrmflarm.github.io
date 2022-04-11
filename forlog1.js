@@ -65,8 +65,8 @@
                         srcremoved = srcremoved.replace(/\n/g, " ");
                         break;
                     case 4:
-                        if (srcremoved.length > 80) {
-                            srcremoved = srcremoved.slice(0, 80) + "...";
+                        if (srcremoved.length > 100) {
+                            srcremoved = srcremoved.slice(0, 100) + "...";
                         }
                         break;
                 }
