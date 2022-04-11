@@ -86,4 +86,7 @@
               pagetable.append(pagerow);
         }
     });
+    for(ele of document.getElementsByClassName("back")){
+        {ele.addEventListener("pnclick",()=>{history.back();})}
+    }
 })();
