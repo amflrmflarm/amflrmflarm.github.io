@@ -58,7 +58,7 @@ border: none;margin:6px 5px;border-top: 1px solid #b7c5d9;
 td{
 font-size: 9pt;
 }
-.log tr:nth-child(2n-1) {
+.log tr:nth-child(2n) {
 background:#E0E5F5;
 }
 
