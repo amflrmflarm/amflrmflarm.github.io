@@ -29,6 +29,9 @@
         }
         req.send(formData);
     } }
+               for(ele of document.getElementsByClassName("back")){
+        ele.addEventListener("click", function(){history.back();});
+    }
     fuckyou.request(0, {
         do: "story",
         s: 41016
@@ -86,7 +89,4 @@
               pagetable.append(pagerow);
         }
     });
-    for(ele of document.getElementsByClassName("back")){
-        ele.addEventListener("click", function(){history.back();});
-    }
 })();
